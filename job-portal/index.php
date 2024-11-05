@@ -7,12 +7,12 @@ if (!isset($_SESSION["user"])) {
 
 require_once "database.php";
 
-// Fetch user information for greeting
+
 $sel = "SELECT * FROM users";
 $query = mysqli_query($conn, $sel);
 $resul = mysqli_fetch_assoc($query);
 
-// Define WSDL and user credentials for Placement Partner SOAP API
+
 $wsdl = "https://webapp.placementpartner.com/ws/clients/?wsdl";
 $username = 'parallel';
 $password = 'parallel';
@@ -25,31 +25,31 @@ $soap_options = array(
 );
 
 try {
-    // Initialize SOAP client
+    
     $client = new SoapClient($wsdl, $soap_options);
 
-    // Log in to get session ID
+    
     $session_id = $client->login($username, $password);
 
-    // Define filter (optional; leave empty if no filter criteria)
+    
     $filter = array();
 
-    // Retrieve job adverts
+    
     $adverts = $client->getAdverts($session_id, $filter);
 
-    // Access job adverts if the structure matches
+    
     if (isset($adverts[0]) && is_object($adverts[0])) {
-        $advert_list = $adverts; // Direct array of job advert objects
+        $advert_list = $adverts; 
     } else {
-        $advert_list = []; // Empty array if no adverts found
+        $advert_list = []; 
     }
 
-    // Logout from API session
+    
     $client->logout($session_id);
 
 } catch (Exception $e) {
     echo "<div class='alert alert-danger mt-4'>Error: " . htmlspecialchars($e->getMessage()) . "</div>";
-    $advert_list = []; // Set an empty array if an error occurs
+    $advert_list = []; 
 }
 ?>
 
@@ -91,7 +91,7 @@ try {
         .card .description {
             font-size: 0.9em;
             color: #030303;
-            text-align: center; /* Center description */
+            text-align: center; 
         }
         .card .button {
             margin-top: 8px;
@@ -151,7 +151,7 @@ try {
             <?php endforeach;?>
             <?php endif;?>       
 
-            <!-- HTML Output for Job Adverts Table -->
+            
          <table id="jobTable" class="table table-bordered mt-4">
             <thead class="table-light">
                 <tr>
@@ -171,7 +171,7 @@ try {
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <script src="script.js"></script>
 
-        <!-- PHP-generated advertData script -->
+        
         <script>
             const advertData = <?php echo json_encode($advert_list); ?>;
         </script>

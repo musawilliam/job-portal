@@ -1,10 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
     const jobTableBody = document.querySelector('#jobTable tbody');
     
-    // Check if advertData is populated
+    
     if (advertData && Array.isArray(advertData)) {
         advertData.forEach(advert => {
-            // Updated link to include company_ref
+            
             const applyLink = `track_click.php?vacancy_ref=${encodeURIComponent(advert.vacancy_ref)}&company_ref=${encodeURIComponent(advert.company_ref)}`;
             
             const row = document.createElement('tr');
@@ -23,18 +23,18 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-    // Chart Data
+    
     document.addEventListener('DOMContentLoaded', () => {
         const jobTableBody = document.querySelector('#jobTable tbody');
         const ctx = document.getElementById('clickChart').getContext('2d');
         
-        // Check and log vacancyRef
+        
         const vacancyRef = advertData.length > 0 ? advertData[0].vacancy_ref : '';
         console.log("Using vacancyRef:", vacancyRef);
     
         if (!vacancyRef) {
             console.error("No vacancy_ref available for chart data fetch.");
-            return; // Exit if vacancyRef is not available
+            return; 
         }
     
         fetch('chart_clicks.php?vacancy_ref=' + encodeURIComponent(vacancyRef))

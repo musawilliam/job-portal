@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $password = trim($_POST["password"]);
 
     if ($email && $password) {
-        // Prepared statement to prevent SQL injection
+        
         $stmt = $conn->prepare("SELECT * FROM users WHERE email = ?");
         $stmt->bind_param("s", $email);
         $stmt->execute();
@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $user = $result->fetch_assoc();
 
         if ($user && password_verify($password, $user["password"])) {
-            $_SESSION["user"] = $user['id'];  // Set session with user ID
+            $_SESSION["user"] = $user['id']; 
             header("Location: index.php");
             exit();
         } else {
