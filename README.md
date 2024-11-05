@@ -1,11 +1,11 @@
 Table of Contents
-Overview
-Prerequisites
-Step-by-Step Installation
-Configuration
-Starting the Application
-Using the Application
-Troubleshooting
+# Overview
+# Prerequisites
+# Step-by-Step Installation
+# Configuration
+# Starting the Application
+# Using the Application
+# Troubleshooting
 
 1. Overview <a name="overview"></a>
 The Job Portal application allows users to browse job listings, view job details, and export listings as CSV files. This guide will help set up the application on any machine so it runs identically to the original environment.
