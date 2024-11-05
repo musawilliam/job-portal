@@ -112,4 +112,4 @@ Error: Issues with user login or session handling.
 Solution: Check php.ini for the session.save_path setting. Make sure it is correctly set.
 
 
-Use the test@gmail.com  and password: 123456789 to login.
+#### Use the test@gmail.com  and password: 123456789 to login.
