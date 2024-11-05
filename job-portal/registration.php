@@ -15,7 +15,7 @@ if (isset($_SESSION["user"])) {
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
+    <div class="container mt-5">
         <?php
         if (isset($_POST["submit"])) {
            $fullName = $_POST["fullname"];
@@ -68,24 +68,28 @@ if (isset($_SESSION["user"])) {
         }
         ?>
         <form action="registration.php" method="post">
-            <div class="form-group">
+            <div class="form-group mb-3">
+            <label for="Full Name" class="form-label">Full Name</label>
                 <input type="text" class="form-control" name="fullname" placeholder="Full Name">
             </div>
-            <div class="form-group">
+            <div class="form-group mb-3">
+            <label for="email" class="form-label">Email Address</label>
                 <input type="emamil" class="form-control" name="email" placeholder="Email">
             </div>
-            <div class="form-group">
+            <div class="form-group mb-3">
+            <label for="Password" class="form-label">Password</label>
                 <input type="password" class="form-control" name="password" placeholder="Password">
             </div>
-            <div class="form-group">
+            <div class="form-group mb-3">
+            <label for="Repeat Password" class="form-label">Repeat Password</label>
                 <input type="password" class="form-control" name="repeat_password" placeholder="Repeat Password">
             </div>
-            <div class="form-btn">
+            <div class="d-grid">
                 <input type="submit" class="btn btn-primary" value="Register" name="submit">
             </div>
         </form>
         <div>
-        <div><p>Already Registered <a href="login.php">Login Here</a></p></div>
+        <div><p class="text-center mt-3">Already Registered <a href="login.php" class="btn btn-secondary btn-sm">Login Here</a></p></div>
       </div>
     </div>
 </body>
