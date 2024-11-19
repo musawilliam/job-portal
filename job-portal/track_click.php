@@ -2,6 +2,27 @@
 session_start();
 require_once "database.php";
 
+if (!isset($_SESSION["user"])) {
+    echo "Session not set.";
+    exit();
+}
+
+if (empty($_GET['vacancy_ref'])) {
+    echo "Vacancy reference is missing.";
+    exit();
+}
+
+$user_id = $_SESSION["user"];
+$vacancy_ref = htmlspecialchars(trim($_GET['vacancy_ref']));
+
+echo "User ID: $user_id, Vacancy Reference: $vacancy_ref";
+exit();
+
+
+
+
+
+
 if (isset($_SESSION["user"]) && !empty($_GET['vacancy_ref'])) {
     $user_id = $_SESSION["user"];
     $vacancy_ref = htmlspecialchars(trim($_GET['vacancy_ref']));  
